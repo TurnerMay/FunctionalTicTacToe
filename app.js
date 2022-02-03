@@ -20,16 +20,18 @@ let winner = [
 ];
 
 function cellClicked(event) {
-  if (gameOver == 1) {
-    itOver();
-  } else if (turnCounter % 2 == 0) {
-    event.target.textContent = "X";
-  } else {
-    event.target.textContent = "O";
-  }
-  turnCounter++;
+  if (event.target.textContent == "") {
+    if (gameOver == 1) {
+      itOver();
+    } else if (turnCounter % 2 == 0) {
+      event.target.textContent = "X";
+    } else {
+      event.target.textContent = "O";
+    }
+    turnCounter++;
 
-  checkWinner();
+    checkWinner();
+  }
 }
 
 function checkWinner() {
